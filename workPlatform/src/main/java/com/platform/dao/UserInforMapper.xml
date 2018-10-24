@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.dao.UserInforMapper">
+	<select id="getUsers" resultType="com.platform.entity.UserInforEntity">
+		SELECT * FROM t_user_infor t WHERE 1=1
+		<if test="pk_id !=null and pk_id !=''">
+			and t.pk_id =#{pk_id}
+		</if>
+		<if test="user_id !=null and user_id !=''">
+			and t.user_id =#{user_id}
+		</if>
+		<if test="user_name !=null and user_name !=''">
+			and t.user_name =#{user_name}
+		</if>
+		<if test="user_age !=null and user_age !=''">
+			and t.user_age =#{user_age}
+		</if>
+		<if test="user_sex !=null and user_sex !=''">
+			and t.user_sex =#{user_sex}
+		</if>
+		<if test="user_phonenum !=null and user_phonenum !=''">
+			and t.user_phonenum =#{user_phonenum}
+		</if>
+		<if test="user_email !=null and user_email !=''">
+			and t.user_email =#{user_email}
+		</if>
+		<if test="user_accout !=null and user_accout !=''">
+			and t.user_accout =#{user_accout}
+		</if>
+		<if test="user_password !=null and user_password !=''">
+			and t.user_password =#{user_password}
+		</if>
+		<if test="user_weixin !=null and user_weixin !=''">
+			and t.user_weixin =#{user_weixin}
+		</if>
+		<if test="organization_id !=null and organization_id !=''">
+			and t.organization_id like '%@#{organization_id}@%'
+		</if>
+		<if test="role_id !=null and role_id !=''">
+			and t.role_id like #{role_id}
+		</if>
+	</select>
+	<select id="getAllUsers" resultType="com.platform.entity.UserInforEntity">
+		SELECT * FROM t_user_infor
+	</select>
+</mapper>
